@@ -5,9 +5,12 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/cmtools)](https://cran.r-project.org/package=cmtools)
+[![Coverage
+Status](https://codecov.io/github/edsandorf/cmtools/coverage.svg?branch=master)](https://codecov.io/github/edsandorf/cmtools?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of cmtools is to …
