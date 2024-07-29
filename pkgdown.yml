@@ -1,9 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-06-28T09:40Z
+last_built: 2024-07-29T13:13Z
 urls:
   reference: http://edsandorf.me/cmtools/reference
   article: http://edsandorf.me/cmtools/articles
-

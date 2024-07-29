@@ -1,30 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://edsandorf.me/cmtools/404.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/index.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/reference/cmtools-package.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/reference/load_packages.html</loc>
-  </url>
-  <url>
-    <loc>http://edsandorf.me/cmtools/reference/repeat_rows.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://edsandorf.me/cmtools/404.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/LICENSE-text.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/LICENSE.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/authors.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/index.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/reference/cmtools-package.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/reference/index.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/reference/load_packages.html</loc></url>
+<url><loc>http://edsandorf.me/cmtools/reference/repeat_rows.html</loc></url>
 </urlset>
+
