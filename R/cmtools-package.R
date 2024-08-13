@@ -11,5 +11,6 @@
 #' @importFrom tibble tibble
 #' @importFrom tibble is_tibble
 #' @importFrom utils install.packages
+#' @importFrom stats setNames
 ## usethis namespace: end
 NULL
