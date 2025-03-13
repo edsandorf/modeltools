@@ -1,5 +1,3 @@
-context("repeat_rows()")
-
 test_that("repeat_rows() works with a matrix and does not flatten the results", {
   x <- matrix(1:2, nrow = 2)
   expect_equal(repeat_rows(x, 2), matrix(c(1, 1, 2, 2), nrow = 4))

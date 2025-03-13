@@ -1,5 +1,3 @@
-context("Test poe_test()")
-
 set.seed(123)
 x <- qnorm(runif(100), mean = -0.75, sd = 1)
 y <- qnorm(runif(100), mean = 1.5, sd = 2)
