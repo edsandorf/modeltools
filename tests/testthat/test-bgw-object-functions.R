@@ -15,5 +15,5 @@ log_lik <- function(param) {
   )
 }
 
-model <- bgw_mle(log_lik, betaStart = c(0, 0))
+model <- bgw_mle(log_lik, betaStart = c(b1 = 0, b2 = 0))
 
