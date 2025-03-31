@@ -20,8 +20,10 @@ the optimization converged to a local optimum.
 }
 \details{
 Objects of class bgw_mle will have the following codes:
+0 - Initial f(x) cannot be computed
 4 - Relative function convergence
 5 - X- and relative function convergence
 7 - Singular convergence
 8 - False convergence
+9 - Function evaluation limit
 }
