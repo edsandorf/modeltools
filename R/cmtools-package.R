@@ -17,5 +17,6 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr everything
 #' @importFrom tidyr pivot_longer
+#' @importFrom numDeriv jacobian
 ## usethis namespace: end
 NULL
