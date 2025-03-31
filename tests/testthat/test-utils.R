@@ -14,5 +14,3 @@ test_that("repeat_rows() works with a tibble and does not flatten the results", 
   expect_equal(repeat_rows(x, 2), structure(list(a = c(1L, 1L, 2L, 2L), b = c(3L, 3L, 4L, 4L)), row.names = c(NA, 
                                                                                                               -4L), class = c("tbl_df", "tbl", "data.frame")))
   })
-
-
