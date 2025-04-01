@@ -44,7 +44,8 @@ glance.bgw_mle <- function(x, ...) {
       log_lik = logLik(x),
       aic = AIC(x),
       bic = BIC(x),
-      nobs = nobs(x)
+      nobs = nobs(x),
+      k = length(coef(x))
     )
   )
 }
