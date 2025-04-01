@@ -17,6 +17,7 @@ Imports:
     dplyr,
     tidyr,
     bgw,
+    maxLik,
     numDeriv
 Suggests: 
     testthat (>= 3.0.0)
