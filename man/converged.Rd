@@ -19,7 +19,7 @@ Using the return code from the optimizer, check if the code indicates that
 the optimization converged to a local optimum.
 }
 \details{
-Objects of class bgw_mle will have the following codes:
+Objects of class \code{bgw_mle} will have the following codes:
 0 - Initial f(x) cannot be computed
 4 - Relative function convergence
 5 - X- and relative function convergence

@@ -7,14 +7,14 @@
 has_scores(x)
 }
 \arguments{
-\item{x}{A model object of class \code{bgw_mle}}
+\item{x}{A model object}
 }
 \value{
 A boolean value equal to TRUE if the object contains the scores.
 }
 \description{
-The scores matrix contains the gradient observations and are used to calcualte
-the robust variance-covariance matrix. The function is only implemented and
-used for objects of class \code{bgw_mle}. If called on other objects, the function
-will throw an error.
+The scores matrix contains the gradient observations and are used to calculate
+the robust variance-covariance matrix. The function checks whether the scores
+matrix is present in the model object. The function is primarily used to
+control the flow in other functions.
 }

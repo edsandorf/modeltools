@@ -6,7 +6,7 @@ test_that("is_bgw() correctly returns TRUE and FALSE", {
 test_that("has_scores() correctly returns TRUE and FALSE", {
   expect_true(has_scores(modified_model))
   expect_false(has_scores(model))
-  expect_error(has_scores(list(x = runif(10))))
+  expect_false(has_scores(list(x = runif(10))))
 })
 
 test_that("converged() correctly returns TRUE and FALSE", {
