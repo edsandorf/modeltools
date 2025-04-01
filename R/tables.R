@@ -25,8 +25,10 @@ stars <- function(p) {
 #' Prepare model output for `gt`
 #' 
 #' Takes a model object as an input and prepares a table with estimated 
-#' coefficients, standard errors, and stars indicating significance. The table
-#' can quickly chained to other tables using left_join(). 
+#' coefficients, standard errors, and stars indicating significance. Names in
+#' `term` will be converted to lower case to ensure seamless use of left join.
+#' 
+#' The table can quickly chained to other tables using left_join(). 
 #' 
 #' @param x A model object
 #' @param ... Additional arguments passed to [broom::tidy()] and 
@@ -38,12 +40,13 @@ stars <- function(p) {
 prep_for_gt <- function(x, ...) {
   return(
     tidy(x, ...) |> 
-      mutate(
-        stars = stars(.data$p.value)
-      ) |> 
       bind_rows(
         glance(x, ...) |> 
           pivot_longer(cols = everything(), names_to = "term", values_to = "estimate")
-      )
+      ) |> 
+      mutate(
+        term = tolower(term),
+        stars = stars(.data$p.value)
+      ) 
   )
 }
