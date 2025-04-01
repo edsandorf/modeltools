@@ -17,6 +17,9 @@ A tibble with estimated coefficients, standard errors, and stars.
 }
 \description{
 Takes a model object as an input and prepares a table with estimated
-coefficients, standard errors, and stars indicating significance. The table
-can quickly chained to other tables using left_join().
+coefficients, standard errors, and stars indicating significance. Names in
+\code{term} will be converted to lower case to ensure seamless use of left join.
+}
+\details{
+The table can quickly chained to other tables using left_join().
 }
