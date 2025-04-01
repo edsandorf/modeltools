@@ -1,16 +1,18 @@
 #' Calculates and adds the scores to a fitted model object
 #' 
-#' Calculates and adds the scores to a fitted model object of class `bgw_mle`.
-#' The function is a wrapper around [numDeriv::jacobian()].  
+#' Calculates and adds the scores to a fitted model object of.
+#' The scores are the gradient observations/first derivatives of the log-likelihood
+#' function. The function is a wrapper around [numDeriv::jacobian()].
 #' 
-#' @param object A fitted model object of class `bgw_mle`.
+#' @param object A fitted model object of class
 #' @param func A function with real (vector) results. This is typically the 
-#' log-likelihood function.
+#' log-likelihood function. The function must return the function values at the
+#' observation level.
 #' @param x A real or real vector argument to func, indicating the point at
 #' which the gradient is to be calculated.
 #' @param ... Additional arguments passed to [numDeriv::jacobian()].
 #' 
-#' @return A fitted model object of class `bgw_mle` with the scores added to the
+#' @return A fitted model object with the scores added to the
 #' object.
 #' 
 #' @export
