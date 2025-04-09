@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(cmtools)
+library(modeltools)
 
-test_check("cmtools")
+test_check("modeltools")

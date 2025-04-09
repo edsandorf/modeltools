@@ -2,8 +2,6 @@
 library(maxLik)
 library(bgw)
 library(tibble)
-library(numDeriv)
-library(modeltools)
 
 # Generate data ----
 set.seed(1)
