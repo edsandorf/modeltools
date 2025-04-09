@@ -13,24 +13,24 @@ knitr::opts_chunk$set(
 )
 ```
 
-# cmtools
+# modeltools
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/cmtools)](https://cran.r-project.org/package=cmtools)
-[![Coverage Status](https://codecov.io/github/edsandorf/cmtools/coverage.svg?branch=master)](https://codecov.io/github/edsandorf/cmtools?branch=master)
+[![R-CMD-check](https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/modeltools)](https://cran.r-project.org/package=modeltools)
+[![Coverage Status](https://codecov.io/github/edsandorf/modeltools/coverage.svg?branch=master)](https://codecov.io/github/edsandorf/modeltools?branch=master)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of cmtools is to ...
+The goal of modeltools is to ...
 
 ## Installation
 
-You can install the development version of cmtools from [GitHub](https://github.com/) with:
+You can install the development version of modeltools from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("edsandorf/cmtools")
+devtools::install_github("edsandorf/modeltools")
 ```
 
 ## Example
@@ -38,22 +38,7 @@ devtools::install_github("edsandorf/cmtools")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(cmtools)
+library(modeltools)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

@@ -1,4 +1,4 @@
-# cmtools v0.0.1
+# modeltools v0.0.1
 * Added functions to calculate the sandwich estimator for the covariance matrix
 when the model has been solved using BGW. 
 * Added function to add the scores to a BGW object

@@ -1,10 +1,10 @@
-Package: cmtools
-Title: Choice modeling and visualization in R
+Package: modeltools
+Title: Tools for econometric modeling and visualization in R
 Version: 0.0.0.9002
 Authors@R: 
     person("Erlend Dancke", "Sandorf", , "erlend.dancke.sandorf@nmbu.no", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7521-4773"))
-Description: A collection of tools for choice modeling and visualization of choice data in R using syntax consistent with the tidyverse.
+Description: A collection of tools for econometric modeling and visualization in R with a particular focus on choice modeling using syntax consistent with the tidyverse.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -22,4 +22,4 @@ Imports:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: http://edsandorf.me/cmtools/
+URL: http://modeltools.edsandorf.me/

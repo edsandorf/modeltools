@@ -52,4 +52,4 @@ docs
 
 # Other files
 legacy.R
-^cmtools\.Rproj$
+^modeltools\.Rproj$
