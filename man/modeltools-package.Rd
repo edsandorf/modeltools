@@ -18,5 +18,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Erlend Dancke Sandorf \email{erlend.dancke.sandorf@nmbu.no} (\href{https://orcid.org/0000-0001-7521-4773}{ORCID})
 
+Authors:
+\itemize{
+  \item Erlend Dancke Sandorf \email{erlend.dancke.sandorf@nmbu.no} (\href{https://orcid.org/0000-0001-7521-4773}{ORCID})
+}
+
 }
 \keyword{internal}

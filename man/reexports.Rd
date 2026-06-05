@@ -18,8 +18,8 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{generics}{\code{\link[generics]{glance}}, \code{\link[generics]{tidy}}}
+  \item{generics}{\code{\link[generics:glance]{glance()}}, \code{\link[generics:tidy]{tidy()}}}
 
-  \item{stats}{\code{\link[stats]{AIC}}, \code{\link[stats:AIC]{BIC}}, \code{\link[stats]{coef}}, \code{\link[stats]{logLik}}, \code{\link[stats]{nobs}}, \code{\link[stats]{vcov}}}
+  \item{stats}{\code{\link[stats:AIC]{AIC()}}, \code{\link[stats:BIC]{BIC()}}, \code{\link[stats:coef]{coef()}}, \code{\link[stats:logLik]{logLik()}}, \code{\link[stats:nobs]{nobs()}}, \code{\link[stats:vcov]{vcov()}}}
 }}
 
