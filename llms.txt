@@ -1,0 +1,147 @@
+# cmtools
+
+The goal of cmtools is to …
+
+## Installation
+
+You can install the development version of cmtools from
+[GitHub](https://github.com/) with:
+
+``` r
+
+# install.packages("devtools")
+devtools::install_github("edsandorf/cmtools")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+
+library(cmtools)
+## basic example code
+```
+
+What is special about using `README.Rmd` instead of just `README.md`?
+You can include R chunks like so:
+
+``` r
+
+summary(cars)
+#>      speed           dist       
+#>  Min.   : 4.0   Min.   :  2.00  
+#>  1st Qu.:12.0   1st Qu.: 26.00  
+#>  Median :15.0   Median : 36.00  
+#>  Mean   :15.4   Mean   : 42.98  
+#>  3rd Qu.:19.0   3rd Qu.: 56.00  
+#>  Max.   :25.0   Max.   :120.00
+```
+
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this.
+
+You can also embed plots, for example:
+
+![](reference/figures/README-pressure-1.png)
+
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.
+
+# Package index
+
+## All functions
+
+- [`AIC(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/AIC.bgw_mle.md)
+  :
+
+  AIC of a `bgw_mle` object
+
+- [`BIC(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/BIC.bgw_mle.md)
+  :
+
+  BIC of a `bgw_mle` object
+
+- [`add_scores()`](http://modeltools.edsandorf.me/reference/add_scores.md)
+  : Calculates and adds the scores to a fitted model object
+
+- [`bread()`](http://modeltools.edsandorf.me/reference/bread.md) : Bread
+  for sandwiches
+
+- [`coef(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/coef.bgw_mle.md)
+  :
+
+  Coefficients of a `bgw_mle` object
+
+- [`converged()`](http://modeltools.edsandorf.me/reference/converged.md)
+  : Check if model has converged
+
+- [`.onAttach()`](http://modeltools.edsandorf.me/reference/dot-onAttach.md)
+  : Print package startup message
+
+- [`glance(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/glance.bgw_mle.md)
+  : Glance a \`bgw_mle´ object
+
+- [`has_scores()`](http://modeltools.edsandorf.me/reference/has_scores.md)
+  : Check if the model object contains the scores
+
+- [`is_bgw()`](http://modeltools.edsandorf.me/reference/is_bgw.md) :
+
+  Check if the model object is of class `bwg_mle`
+
+- [`load_packages()`](http://modeltools.edsandorf.me/reference/load_packages.md)
+  : Load packages
+
+- [`logLik(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/logLik.bgw_mle.md)
+  :
+
+  Log-likelihood of a `bgw_mle` object
+
+- [`meat()`](http://modeltools.edsandorf.me/reference/meat.md) : Meat
+  for sandwiches
+
+- [`nobs(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/nobs.bgw_mle.md)
+  :
+
+  Number of observations of a `bgw_mle` object
+
+- [`poe_test()`](http://modeltools.edsandorf.me/reference/poe_test.md) :
+  Test for the difference in independent empirical distributions
+
+- [`prep_for_gt()`](http://modeltools.edsandorf.me/reference/prep_for_gt.md)
+  :
+
+  Prepare model output for `gt`
+
+- [`print(`*`<poe_test>`*`)`](http://modeltools.edsandorf.me/reference/print.poe_test.md)
+  :
+
+  Generic print method for
+  [`poe_test()`](http://modeltools.edsandorf.me/reference/poe_test.md)
+
+- [`repeat_rows()`](http://modeltools.edsandorf.me/reference/repeat_rows.md)
+  : Repeat rows
+
+- [`sandwich()`](http://modeltools.edsandorf.me/reference/sandwich.md) :
+  Sandwich estimator
+
+- [`scores()`](http://modeltools.edsandorf.me/reference/scores.md) :
+  Extract the empirical estimation function
+
+- [`search_starting_values()`](http://modeltools.edsandorf.me/reference/search_starting_values.md)
+  : Function to search for starting values
+
+- [`stars()`](http://modeltools.edsandorf.me/reference/stars.md) :
+  Create stars
+
+- [`suggest_parallel()`](http://modeltools.edsandorf.me/reference/suggest_parallel.md)
+  : Function to suggest parallel settings
+
+- [`tidy(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/tidy.bgw_mle.md)
+  : Tidy a \`bgw_mle´ object
+
+- [`vcov(`*`<bgw_mle>`*`)`](http://modeltools.edsandorf.me/reference/vcov.bgw_mle.md)
+  :
+
+  Variance-covariance matrix of a `bgw_mle` object
+
