@@ -11,16 +11,17 @@ Roxygen: list(markdown = TRUE)
 Imports: 
     cli,
     generics,
-    lifecycle,
     tibble,
     dplyr,
     tidyr,
-    bgw,
-    maxLik,
+    rlang,
     numDeriv,
     parallel,
-    progress
+    progress,
+    sandwich
 Suggests: 
+    bgw,
+    maxLik,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 URL: http://modeltools.edsandorf.me/

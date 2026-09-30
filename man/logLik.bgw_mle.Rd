@@ -12,8 +12,11 @@
 \item{...}{Additional arguments}
 }
 \value{
-A single double
+An object of class \code{logLik} with attributes \code{df} (number of
+parameters) and \code{nobs} (number of observations)
 }
 \description{
-Retrieve the log likelihood value of the model.
+Retrieve the log likelihood value of the model. The value is returned as an
+object of class \code{logLik} such that \code{\link[stats:AIC]{stats::AIC()}}, \code{\link[stats:BIC]{stats::BIC()}} and
+likelihood ratio tests work out of the box.
 }

@@ -11,10 +11,11 @@ scores(x, ...)
 
 \item{...}{Additional arguments passed to methods}
 }
+\value{
+A matrix with one row per observation and one column per parameter
+}
 \description{
-This function extracts the empirical estimation function from a model object
-of class \code{bgw_mle}. T
-scores matrix from a model object. The scores matrix
-contains the gradient observations and is used to calculate the robust
-variance-covariance matrix.
+This function extracts the scores matrix from a model object of class
+\code{bgw_mle}. The scores matrix contains the gradient observations and is used
+to calculate the robust variance-covariance matrix.
 }
