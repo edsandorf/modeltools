@@ -1,7 +1,7 @@
 # Generic print method for `poe_test()`
 
 Generic print method for
-[`poe_test()`](http://modeltools.edsandorf.me/reference/poe_test.md)
+[`poe_test()`](https://modeltools.edsandorf.me/reference/poe_test.md)
 
 ## Usage
 

@@ -19,7 +19,11 @@ prep_for_gt(x, ...)
 
 - ...:
 
-  Additional arguments passed to `broom::tidy()` and `broom::glance()`
+  Additional arguments passed to
+  [`generics::tidy()`](https://generics.r-lib.org/reference/tidy.html)
+  and
+  [`generics::glance()`](https://generics.r-lib.org/reference/glance.html),
+  e.g., `vcov = sandwich(x)` for robust standard errors
 
 ## Value
 

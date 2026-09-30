@@ -1,9 +1,13 @@
 # Test for the difference in independent empirical distributions
 
 The function calculates the complete combinatorial of the supplied
-vectors using a loop implementation by taking the difference between
-every combination of the elements in the vectors. The input vectors must
-be numeric, but can be of different lengths.
+vectors, i.e., the share of all pairwise differences `x - y` that are
+less than or equal to zero. Instead of forming all
+`length(x) * length(y)` differences, `y` is sorted and
+[`findInterval()`](https://rdrr.io/r/base/findInterval.html) counts the
+elements of `y` below each element of `x`, which keeps memory use
+linear. The input vectors must be numeric, non-empty, and free of
+missing values, but can be of different lengths.
 
 ## Usage
 

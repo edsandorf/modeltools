@@ -7,6 +7,15 @@ that the optimization converged to a local optimum.
 
 ``` r
 converged(x, ...)
+
+# S3 method for class 'bgw_mle'
+converged(x, ...)
+
+# S3 method for class 'maxLik'
+converged(x, ...)
+
+# Default S3 method
+converged(x, ...)
 ```
 
 ## Arguments
@@ -25,7 +34,11 @@ A logical value indicating if the model has converged
 
 ## Details
 
-Objects of class `bgw_mle` will have the following codes: 0 - Initial
-f(x) cannot be computed 4 - Relative function convergence 5 - X- and
-relative function convergence 7 - Singular convergence 8 - False
-convergence 9 - Function evaluation limit
+Objects of class `bgw_mle` are considered converged for the following
+codes: 3 - X-convergence 4 - Relative function convergence 5 - X- and
+relative function convergence 6 - Absolute function convergence
+
+Objects of class `maxLik` are considered converged for the following
+codes: 0 - Successful convergence (optim based methods, e.g. BFGS) 1 -
+Gradient close to zero 2 - Successive function values within tolerance
+limit 8 - Successive function values within relative tolerance limit

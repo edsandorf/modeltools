@@ -23,7 +23,7 @@ load_packages(pkgs, install_missing = TRUE)
 
 ## Value
 
-The function does not return anything
+Invisibly, a character vector of the packages that were loaded
 
 ## Examples
 
@@ -31,5 +31,4 @@ The function does not return anything
 if (FALSE) { # \dontrun{
    load_packages(c("dplyr", "ggplot2"))
  } # }
- 
 ```

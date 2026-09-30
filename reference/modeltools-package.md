@@ -1,4 +1,4 @@
-# modeltools: Tools for econometric modeling and visualization in R
+# modeltools: Tools for Econometric Modeling and Visualization in R
 
 A collection of tools for econometric modeling and visualization in R
 with a particular focus on choice modeling using syntax consistent with
@@ -8,7 +8,11 @@ the tidyverse.
 
 Useful links:
 
-- <http://modeltools.edsandorf.me/>
+- <https://modeltools.edsandorf.me/>
+
+- <https://github.com/edsandorf/modeltools>
+
+- Report bugs at <https://github.com/edsandorf/modeltools/issues>
 
 ## Author
 

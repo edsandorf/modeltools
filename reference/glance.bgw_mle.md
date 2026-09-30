@@ -1,6 +1,6 @@
-# Glance a \`bgw_mle´ object
+# Glance a `bgw_mle` object
 
-Glance a \`bgw_mle´ object
+Glance a `bgw_mle` object
 
 ## Usage
 

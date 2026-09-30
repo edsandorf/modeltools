@@ -1,9 +1,8 @@
 # Extract the empirical estimation function
 
-This function extracts the empirical estimation function from a model
-object of class `bgw_mle`. T scores matrix from a model object. The
-scores matrix contains the gradient observations and is used to
-calculate the robust variance-covariance matrix.
+This function extracts the scores matrix from a model object of class
+`bgw_mle`. The scores matrix contains the gradient observations and is
+used to calculate the robust variance-covariance matrix.
 
 ## Usage
 
@@ -20,3 +19,7 @@ scores(x, ...)
 - ...:
 
   Additional arguments passed to methods
+
+## Value
+
+A matrix with one row per observation and one column per parameter

@@ -7,13 +7,17 @@
 
 ## Citation
 
-Sandorf ED (2025). *modeltools: Tools for choice modeling in R*. R
-package version 0.0.0.9004, <https://modeltools.edsandorf.me>.
+Source:
+[`inst/CITATION`](https://github.com/edsandorf/modeltools/blob/main/inst/CITATION)
+
+Sandorf ED (2026). *modeltools: Tools for Econometric Modeling and
+Visualization in R*. R package version 0.0.0.9005,
+<https://modeltools.edsandorf.me>.
 
     @Manual{,
-      title = {{modeltools}: Tools for choice modeling in R},
+      title = {{modeltools}: Tools for Econometric Modeling and Visualization in R},
       author = {Erlend Dancke Sandorf},
-      year = {2025},
-      note = {R package version 0.0.0.9004},
+      year = {2026},
+      note = {R package version 0.0.0.9005},
       url = {https://modeltools.edsandorf.me},
     }

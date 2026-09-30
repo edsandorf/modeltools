@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tools for econometric modeling and visualization in R • modeltools</title>
+<title>Tools for Econometric Modeling and Visualization in R • modeltools</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Tools for econometric modeling and visualization in R">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Tools for Econometric Modeling and Visualization in R">
 <meta name="description" content="A collection of tools for econometric modeling and visualization in R with a particular focus on choice modeling using syntax consistent with the tidyverse.">
 <meta property="og:description" content="A collection of tools for econometric modeling and visualization in R with a particular focus on choice modeling using syntax consistent with the tidyverse.">
 </head>
@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">modeltools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9004</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/edsandorf/modeltools/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -46,46 +47,63 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="cmtools">cmtools<a class="anchor" aria-label="anchor" href="#cmtools"></a>
+<div class="page-header"><h1 id="modeltools">modeltools<a class="anchor" aria-label="anchor" href="#modeltools"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of cmtools is to …</p>
+<p>The goal of modeltools is to provide small, reusable tools for econometric modeling in R, with a particular focus on choice models estimated with <a href="https://CRAN.R-project.org/package=bgw" class="external-link">bgw</a>. Model objects work with the <code>stats</code>, <code>broom</code> and <code>sandwich</code> generics, so standard tools such as <code><a href="https://rdrr.io/r/stats/AIC.html" class="external-link">AIC()</a></code>, <code><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy()</a></code> and <code><a href="https://zeileis.codeberg.page/sandwich/reference/sandwich.html" class="external-link">sandwich()</a></code> work out of the box.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of cmtools from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of modeltools from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"edsandorf/cmtools"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"edsandorf/modeltools"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>Robust standard errors for a model estimated with <code>bgw_mle()</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cmtools</span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://modeltools.edsandorf.me/">modeltools</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu">bgw</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bgw/man/bgw_mle.html" class="external-link">bgw_mle</a></span><span class="op">(</span></span>
+<span>  <span class="va">log_lik</span>, </span>
+<span>  betaStart <span class="op">=</span> <span class="va">beta</span>, </span>
+<span>  bgw_settings <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>vcHessianMethod <span class="op">=</span> <span class="st">"finiteDifferences"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/add_scores.html">add_scores</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">log_lik</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html" class="external-link">tidy</a></span><span class="op">(</span><span class="va">model</span>, vcov <span class="op">=</span> <span class="fu"><a href="https://zeileis.codeberg.page/sandwich/reference/sandwich.html" class="external-link">sandwich</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/prep_for_gt.html">prep_for_gt</a></span><span class="op">(</span><span class="va">model</span>, vcov <span class="op">=</span> <span class="fu"><a href="https://zeileis.codeberg.page/sandwich/reference/vcovCL.html" class="external-link">vcovCL</a></span><span class="op">(</span><span class="va">model</span>, cluster <span class="op">=</span> <span class="va">db</span><span class="op">$</span><span class="va">id</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Comparing two empirical distributions using the Poe et al. (2005) test:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
-<span><span class="co">#&gt;      speed           dist       </span></span>
-<span><span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span></span>
-<span><span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span></span>
-<span><span class="co">#&gt;  Median :15.0   Median : 36.00  </span></span>
-<span><span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span></span>
-<span><span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span></span>
-<span><span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://modeltools.edsandorf.me/">modeltools</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">123</span><span class="op">)</span></span>
+<span><span class="va">wtp_a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, mean <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="va">wtp_b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, mean <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/poe_test.html">poe_test</a></span><span class="op">(</span><span class="va">wtp_a</span>, <span class="va">wtp_b</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Method:  Poe et al. (2005) test </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Means: </span></span>
+<span><span class="co">#&gt; wtp_a wtp_b </span></span>
+<span><span class="co">#&gt; 0.516 1.042 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; H0: x = y </span></span>
+<span><span class="co">#&gt; H1: x &gt; y | x &lt; y </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Gamma:  0.646704 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Gamma &gt;.95 and &lt;.05 indicates difference at the 5% level.</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=modeltools" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/edsandorf/modeltools/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/edsandorf/modeltools/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
@@ -115,9 +133,8 @@
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edsandorf/cmtools/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://cran.r-project.org/package=cmtools" class="external-link"><img src="http://www.r-pkg.org/badges/version-last-release/cmtools" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://codecov.io/github/edsandorf/cmtools?branch=master" class="external-link"><img src="https://codecov.io/github/edsandorf/cmtools/coverage.svg?branch=master" alt="Coverage Status"></a></li>
+<li><a href="https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/github/edsandorf/modeltools?branch=main" class="external-link"><img src="https://codecov.io/github/edsandorf/modeltools/coverage.svg?branch=main" alt="Coverage Status"></a></li>
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 </ul>
 </div>
@@ -131,7 +148,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer>

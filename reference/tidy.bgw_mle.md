@@ -1,12 +1,13 @@
-# Tidy a \`bgw_mle´ object
+# Tidy a `bgw_mle` object
 
-Tidy a \`bgw_mle´ object
+Standard errors are calculated from the supplied variance-covariance
+matrix and p-values are based on the asymptotic normal distribution.
 
 ## Usage
 
 ``` r
 # S3 method for class 'bgw_mle'
-tidy(x, ...)
+tidy(x, vcov = stats::vcov(x), ...)
 ```
 
 ## Arguments
@@ -14,6 +15,12 @@ tidy(x, ...)
 - x:
 
   An object of class `bgw_mle`
+
+- vcov:
+
+  A variance-covariance matrix used to calculate the standard errors.
+  Defaults to `vcov(x)`. Use, e.g., `sandwich(x)` for robust standard
+  errors.
 
 - ...:
 
