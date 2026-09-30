@@ -13,7 +13,7 @@ load_packages(pkgs, install_missing = TRUE)
 packages. Default is TRUE}
 }
 \value{
-The function does not return anything
+Invisibly, a character vector of the packages that were loaded
 }
 \description{
 A wrapper for \code{library()} that can load multiple packages at once. If the
@@ -23,5 +23,5 @@ package is not installed, the function will install it first.
 \dontrun{
    load_packages(c("dplyr", "ggplot2"))
  }
- 
+
 }

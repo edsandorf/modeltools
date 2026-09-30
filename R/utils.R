@@ -7,28 +7,39 @@
 #' @param install_missing A boolean indicating whether to install missing
 #' packages. Default is TRUE
 #' 
-#' @returns The function does not return anything
-#' 
+#' @returns Invisibly, a character vector of the packages that were loaded
+#'
 #' @examples
 #' \dontrun{
 #'    load_packages(c("dplyr", "ggplot2"))
 #'  }
-#'  
+#'
 #' @export
 load_packages <- function(pkgs, install_missing = TRUE) {
-  for (pkg in pkgs) {
-    if (!requireNamespace(pkg, quietly = TRUE)) {
-      if (install_missing) {
-        install.packages(pkg)
-        
-      } else {
-        cli_warn(paste0("Package '", pkg, "' is not installed."))
-        
-      }
+  is_installed <- function(pkg) requireNamespace(pkg, quietly = TRUE)
+  missing <- pkgs[!vapply(pkgs, is_installed, logical(1))]
+
+  if (length(missing) > 0) {
+    if (install_missing) {
+      install.packages(missing)
+      missing <- missing[!vapply(missing, is_installed, logical(1))]
+
     }
-    
+
+    if (length(missing) > 0) {
+      cli_warn("{cli::qty(missing)}Package{?s} {.pkg {missing}} {?is/are} not installed and will not be loaded.")
+
+    }
+  }
+
+  loaded <- setdiff(pkgs, missing)
+  for (pkg in loaded) {
     library(pkg, character.only = TRUE)
   }
+
+  return(
+    invisible(loaded)
+  )
 }
 
 #' Repeat rows

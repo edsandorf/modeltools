@@ -1,102 +1,54 @@
 #' Function to search for starting values
 #'
-#' The function takes a vector of starting values. These will then be adjusted by adding a random unform
+#' The function takes a vector of starting values. These will then be adjusted by adding a random uniform
 #' value between -1 and 1 multiplied by an adjustment multiplier. The function then evaluates the
 #' log-likelihood for each set of starting values and returns the specified number of best fitting
-#' starting values.
+#' starting values. The original starting values are always included as a candidate.
 #'
-#' @param log_lik A log likelihood function
-#' @param starting_values A vector of starting values. Note: Named vectors are ignored. The startign values must be locally bound in the log-likelihood function to work correctly.
-#' @param N The number of starting value candiates to use. Default is 10,000
-#' @param return Number of vectors to return
+#' @param prob_fn A likelihood function returning the observation-level likelihoods (probabilities),
+#' i.e., the function passed to [bgw::bgw_mle()]. The function is evaluated as `sum(log(prob_fn(param)))`.
+#' @param starting_values A (named) vector of starting values. Names are preserved in the output.
+#' @param N The number of starting value candidates to use. Default is 10,000
+#' @param n_best Number of vectors to return. Default is 10
 #' @param adjustment_multiplier An adjustment multiplier for the random uniform adjustment matrix. The default value is 1.
 #'
-#' @return A list of `return` number of parametrs
+#' @return A list of the `n_best` best fitting starting value vectors, ordered from best to worst.
 #'
 #' @export
 search_starting_values <- function(
-  log_lik,
+  prob_fn,
   starting_values,
   N = 10000,
-  return = 10,
+  n_best = 10,
   adjustment_multiplier = 1
 ) {
+  k <- length(starting_values)
+
+  # Original starting values plus N randomly adjusted candidates
+  candidates <- rbind(
+    starting_values,
+    repeat_rows(t(starting_values), N) +
+      matrix(runif(N * k, min = -1, max = 1) * adjustment_multiplier, ncol = k)
+  )
+
   # Define a progress bar
   pb <- progress::progress_bar$new(
     format = "[:bar] :percent :elapsed",
-    total = N,
+    total = nrow(candidates),
     clear = FALSE,
     width = 80
   )
 
-  # Repeat the vector of starting values N times and turn into a matrix
-  starting_values <- matrix(
-    rep(starting_values, times = N),
-    ncol = length(starting_values),
-    byrow = TRUE
-  )
-
-  # Create an adjustment matrix of the same size with random values
-  adjustment <- matrix(
-    runif(N * ncol(starting_values), min = -1, max = 1),
-    ncol = ncol(starting_values)
-  )
-
-  # Add the adjustment to the starting values
-  starting_values <- starting_values + adjustment * adjustment_multiplier
-
-  # Turn the matrix of starting values into a list for faster processing using lapply
-  starting_values_list <- as.list(
-    as.data.frame(
-      t(
-        starting_values
-      )
-    )
-  )
-
-  # Fix the scope and set the ticker fro the progress bar.
-  ll_scope_fix <- function(param, pb) {
-    pb$tick()
-
-    return(
-      log_lik(param)
-    )
-  }
-
   # Get the LL values for the different starting values
-  ll_values <- lapply(
-    starting_values_list,
-    function(
-      param,
-      pb
-    ) {
-      sum(
-        log(
-          ll_scope_fix(param, pb)
-        )
-      )
-    },
-    pb = pb
-  )
+  ll_values <- apply(candidates, 1, function(param) {
+    pb$tick()
+    sum(log(prob_fn(param)))
+  })
 
-  # Turn into a matrix, add the LL values, and order by LL value
-  ll_values <- do.call(rbind, ll_values)
-  starting_values <- cbind(starting_values, ll_values)
-  starting_values <- starting_values[
-    order(starting_values[, ncol(starting_values)], decreasing = TRUE),
-  ]
+  # Return the specified number of best fitting starting values
+  best <- order(ll_values, decreasing = TRUE)[seq_len(min(n_best, length(ll_values)))]
 
-  # Subset the list to return the specified number of best fitting starting values.
-  starting_values_list <- as.list(
-    as.data.frame(
-      t(
-        starting_values[seq_len(return), -ncol(starting_values)]
-      )
-    )
-  )
-
-  # Return the list of starting values
   return(
-    starting_values_list
+    lapply(best, function(i) candidates[i, ])
   )
 }

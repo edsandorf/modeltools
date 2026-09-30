@@ -19,10 +19,13 @@ A list with the following components:
 }
 }
 \description{
-The function calculates the complete combinatorial of the supplied vectors
-using a loop implementation by taking the difference between every
-combination of the elements in the vectors. The input vectors must
-be numeric, but can be of different lengths.
+The function calculates the complete combinatorial of the supplied vectors,
+i.e., the share of all pairwise differences \code{x - y} that are less than or
+equal to zero. Instead of forming all \code{length(x) * length(y)} differences,
+\code{y} is sorted and \code{\link[=findInterval]{findInterval()}} counts the elements of \code{y} below each
+element of \code{x}, which keeps memory use linear. The input vectors must
+be numeric, non-empty, and free of missing values, but can be of different
+lengths.
 }
 \examples{
 x <- qnorm(runif(100), mean = -0.5, sd = 1)
