@@ -1,5 +1,5 @@
 Package: modeltools
-Title: Tools for econometric modeling and visualization in R
+Title: Tools for Econometric Modeling and Visualization in R
 Version: 0.0.0.9004
 Authors@R: 
     person("Erlend Dancke", "Sandorf", , "erlend.dancke.sandorf@nmbu.no", role = c("aut", "cre"),
@@ -8,7 +8,7 @@ Description: A collection of tools for econometric modeling and visualization in
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-Imports: 
+Imports:
     cli,
     generics,
     tibble,
@@ -19,10 +19,11 @@ Imports:
     parallel,
     progress,
     sandwich
-Suggests: 
+Suggests:
     bgw,
     maxLik,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: http://modeltools.edsandorf.me/
+URL: https://modeltools.edsandorf.me/, https://github.com/edsandorf/modeltools
+BugReports: https://github.com/edsandorf/modeltools/issues
 Config/roxygen2/version: 8.0.0
