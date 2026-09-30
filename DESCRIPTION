@@ -1,6 +1,6 @@
 Package: modeltools
 Title: Tools for Econometric Modeling and Visualization in R
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: 
     person("Erlend Dancke", "Sandorf", , "erlend.dancke.sandorf@nmbu.no", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7521-4773"))
