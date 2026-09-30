@@ -4,62 +4,27 @@ stats::logLik
 
 #' Log-likelihood of a `bgw_mle` object
 #' 
-#' Retrieve the log likelihood value of the model. 
+#' Retrieve the log likelihood value of the model. The value is returned as an
+#' object of class `logLik` such that [stats::AIC()], [stats::BIC()] and 
+#' likelihood ratio tests work out of the box.
 #' 
 #' @param object An object of class `bgw_mle`
 #' @param ... Additional arguments
 #' 
 #' @method logLik bgw_mle
 #' 
-#' @return A single double 
+#' @return An object of class `logLik` with attributes `df` (number of 
+#' parameters) and `nobs` (number of observations)
 #'
 #' @export
 logLik.bgw_mle <- function(object, ...) {
   return(
-    object$maximum
-  )
-}
-
-#' @importFrom stats AIC
-#' @export
-stats::AIC
-
-#' AIC of a `bgw_mle` object
-#' 
-#' Calculate the AIC of the model. 
-#' 
-#' @param object An object of class `bgw_mle`
-#' @param ... Additional arguments
-#' @param k The penalty parameter used. The default value is k = 2 for the
-#' classical AIC
-#' 
-#' @method AIC bgw_mle
-#' 
-#' @return A single double
-#' 
-#' @export
-AIC.bgw_mle <- function(object, ..., k = 2) {
-  return(
-    -2 * object$maximum + k * object$numParams
-  )
-}
-
-#' @importFrom stats BIC
-#' @export
-stats::BIC
-
-#' BIC of a `bgw_mle` object
-#' 
-#' Calculate the BIC of the model. 
-#' 
-#' @inheritParams AIC.bgw_mle
-#' 
-#' @method BIC bgw_mle
-#' 
-#' @export
-BIC.bgw_mle <- function(object, ...) {
-  return(
-    AIC(object, ..., k = log(object$numResids))
+    structure(
+      object$maximum,
+      df = object$numParams,
+      nobs = object$numResids,
+      class = "logLik"
+    )
   )
 }
 

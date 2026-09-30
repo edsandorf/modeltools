@@ -5,30 +5,31 @@
 \title{Function to search for starting values}
 \usage{
 search_starting_values(
-  log_lik,
+  prob_fn,
   starting_values,
   N = 10000,
-  return = 10,
+  n_best = 10,
   adjustment_multiplier = 1
 )
 }
 \arguments{
-\item{log_lik}{A log likelihood function}
+\item{prob_fn}{A likelihood function returning the observation-level likelihoods (probabilities),
+i.e., the function passed to \code{\link[bgw:bgw_mle]{bgw::bgw_mle()}}. The function is evaluated as \code{sum(log(prob_fn(param)))}.}
 
-\item{starting_values}{A vector of starting values. Note: Named vectors are ignored. The startign values must be locally bound in the log-likelihood function to work correctly.}
+\item{starting_values}{A (named) vector of starting values. Names are preserved in the output.}
 
-\item{N}{The number of starting value candiates to use. Default is 10,000}
+\item{N}{The number of starting value candidates to use. Default is 10,000}
 
-\item{return}{Number of vectors to return}
+\item{n_best}{Number of vectors to return. Default is 10}
 
 \item{adjustment_multiplier}{An adjustment multiplier for the random uniform adjustment matrix. The default value is 1.}
 }
 \value{
-A list of \code{return} number of parametrs
+A list of the \code{n_best} best fitting starting value vectors, ordered from best to worst.
 }
 \description{
-The function takes a vector of starting values. These will then be adjusted by adding a random unform
+The function takes a vector of starting values. These will then be adjusted by adding a random uniform
 value between -1 and 1 multiplied by an adjustment multiplier. The function then evaluates the
 log-likelihood for each set of starting values and returns the specified number of best fitting
-starting values.
+starting values. The original starting values are always included as a candidate.
 }

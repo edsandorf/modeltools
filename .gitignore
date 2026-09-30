@@ -52,5 +52,5 @@ docs
 
 # Other files
 legacy.R
-^modeltools\.Rproj$
+*.Rproj
 .DS_Store

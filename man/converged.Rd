@@ -2,9 +2,18 @@
 % Please edit documentation in R/assertions.R
 \name{converged}
 \alias{converged}
+\alias{converged.bgw_mle}
+\alias{converged.maxLik}
+\alias{converged.default}
 \title{Check if model has converged}
 \usage{
 converged(x, ...)
+
+\method{converged}{bgw_mle}(x, ...)
+
+\method{converged}{maxLik}(x, ...)
+
+\method{converged}{default}(x, ...)
 }
 \arguments{
 \item{x}{A model object}
@@ -19,11 +28,15 @@ Using the return code from the optimizer, check if the code indicates that
 the optimization converged to a local optimum.
 }
 \details{
-Objects of class \code{bgw_mle} will have the following codes:
-0 - Initial f(x) cannot be computed
+Objects of class \code{bgw_mle} are considered converged for the following codes:
+3 - X-convergence
 4 - Relative function convergence
 5 - X- and relative function convergence
-7 - Singular convergence
-8 - False convergence
-9 - Function evaluation limit
+6 - Absolute function convergence
+
+Objects of class \code{maxLik} are considered converged for the following codes:
+0 - Successful convergence (optim based methods, e.g. BFGS)
+1 - Gradient close to zero
+2 - Successive function values within tolerance limit
+8 - Successive function values within relative tolerance limit
 }

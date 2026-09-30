@@ -4,14 +4,16 @@
 \name{modeltools-package}
 \alias{modeltools}
 \alias{modeltools-package}
-\title{modeltools: Tools for econometric modeling and visualization in R}
+\title{modeltools: Tools for Econometric Modeling and Visualization in R}
 \description{
 A collection of tools for econometric modeling and visualization in R with a particular focus on choice modeling using syntax consistent with the tidyverse.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{http://modeltools.edsandorf.me/}
+  \item \url{https://modeltools.edsandorf.me/}
+  \item \url{https://github.com/edsandorf/modeltools}
+  \item Report bugs at \url{https://github.com/edsandorf/modeltools/issues}
 }
 
 }

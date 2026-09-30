@@ -2,7 +2,7 @@
 % Please edit documentation in R/assertions.R
 \name{is_bgw}
 \alias{is_bgw}
-\title{Check if the model object is of class \code{bwg_mle}}
+\title{Check if the model object is of class \code{bgw_mle}}
 \usage{
 is_bgw(x)
 }

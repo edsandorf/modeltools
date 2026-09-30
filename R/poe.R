@@ -1,10 +1,13 @@
 #' Test for the difference in independent empirical distributions
 #'
 #' @description
-#' The function calculates the complete combinatorial of the supplied vectors
-#' using a loop implementation by taking the difference between every 
-#' combination of the elements in the vectors. The input vectors must 
-#' be numeric, but can be of different lengths.
+#' The function calculates the complete combinatorial of the supplied vectors,
+#' i.e., the share of all pairwise differences `x - y` that are less than or
+#' equal to zero. Instead of forming all `length(x) * length(y)` differences,
+#' `y` is sorted and [findInterval()] counts the elements of `y` below each
+#' element of `x`, which keeps memory use linear. The input vectors must
+#' be numeric, non-empty, and free of missing values, but can be of different
+#' lengths.
 #' 
 #' @param x,y Two numeric vectors representing the independent empriical 
 #' distributions to be compared
@@ -27,22 +30,19 @@
 #'  
 #' @export
 poe_test <- function(x, y) {
-  # Check input type to ensure they are numeric
+  # Check input type to ensure they are numeric, non-empty and without NAs
   if (!is.numeric(x)) cli_abort("'x' must be numeric")
   if (!is.numeric(y)) cli_abort("'y' must be numeric")
-  
-  n <- length(x)
-  m <- length(y)
-  
-  condition <- rep(NA, n)
-  for (n in seq_len(n)) {
-    condition[n] <- sum((x[n] - y) <= 0)
-  }
-  
+  if (length(x) == 0 || length(y) == 0) cli_abort("'x' and 'y' must be non-empty")
+  if (anyNA(x) || anyNA(y)) cli_abort("'x' and 'y' cannot contain missing values")
+
+  # Share of (x - y) <= 0 = 1 - share of y strictly below x
+  n_y_below_x <- sum(findInterval(x, sort(y), left.open = TRUE))
+
   # Create a list of outputs
   test_results <- list(
     method = "Poe et al. (2005) test",
-    statistic = sum(condition) * (1 / (n * m)),
+    statistic = 1 - n_y_below_x / (length(x) * length(y)),
     means = setNames(
       c(mean(x), mean(y)),
       c(deparse(substitute(x)), 
@@ -72,5 +72,8 @@ print.poe_test <- function(x, ...) {
   cat("H1: x > y | x < y \n\n")
   cat("Gamma: ", x$statistic, "\n\n")
   cat("Gamma >.95 and <.05 indicates difference at the 5% level. \n")
-  
+
+  return(
+    invisible(x)
+  )
 }

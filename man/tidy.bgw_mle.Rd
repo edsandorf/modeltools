@@ -2,12 +2,16 @@
 % Please edit documentation in R/broom-generics.R
 \name{tidy.bgw_mle}
 \alias{tidy.bgw_mle}
-\title{Tidy a `bgw_mle´ object}
+\title{Tidy a \code{bgw_mle} object}
 \usage{
-\method{tidy}{bgw_mle}(x, ...)
+\method{tidy}{bgw_mle}(x, vcov = stats::vcov(x), ...)
 }
 \arguments{
 \item{x}{An object of class \code{bgw_mle}}
+
+\item{vcov}{A variance-covariance matrix used to calculate the standard
+errors. Defaults to \code{vcov(x)}. Use, e.g., \code{sandwich(x)} for robust standard
+errors.}
 
 \item{...}{Additional arguments}
 }
@@ -15,5 +19,6 @@
 A tidy \code{\link[tibble:tibble]{tibble::tibble()}} with the components of the \code{bgw_mle} object
 }
 \description{
-Tidy a `bgw_mle´ object
+Standard errors are calculated from the supplied variance-covariance matrix
+and p-values are based on the asymptotic normal distribution.
 }

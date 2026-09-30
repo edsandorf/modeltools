@@ -31,8 +31,8 @@ stars <- function(p) {
 #' The table can quickly chained to other tables using left_join(). 
 #' 
 #' @param x A model object
-#' @param ... Additional arguments passed to [broom::tidy()] and 
-#' [broom::glance()]
+#' @param ... Additional arguments passed to [generics::tidy()] and
+#' [generics::glance()], e.g., `vcov = sandwich(x)` for robust standard errors
 #' 
 #' @return A tibble with estimated coefficients, standard errors, and stars.
 #' 
@@ -45,7 +45,7 @@ prep_for_gt <- function(x, ...) {
           pivot_longer(cols = everything(), names_to = "term", values_to = "estimate")
       ) |> 
       mutate(
-        term = tolower(term),
+        term = tolower(.data$term),
         stars = stars(.data$p.value)
       ) 
   )

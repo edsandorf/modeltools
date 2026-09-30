@@ -9,7 +9,7 @@
 suggest_parallel <- function() {
   return(
     list(
-      suggested_cores = detectCores() - 1,
+      suggested_cores = max(1L, detectCores() - 1L, na.rm = TRUE),
       suggested_cluster_type = if (.Platform$OS.type == "windows") {
         "PSOCK"
       } else {

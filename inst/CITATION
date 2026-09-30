@@ -1,10 +1,9 @@
-#year <- sub("-.*", "", meta$Date)
-year <- 2025
+year <- if (!is.null(meta$Packaged)) substr(meta$Packaged, 1, 4) else format(Sys.Date(), "%Y")
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(
   bibtype = "Manual",
-  title = "{modeltools}: Tools for choice modeling in R",
+  title = sprintf("{modeltools}: %s", meta$Title),
   author = c(person(c("Erlend", "Dancke"), "Sandorf")),
   year = year,
   note = note,

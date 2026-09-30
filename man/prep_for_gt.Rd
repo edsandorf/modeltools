@@ -9,8 +9,8 @@ prep_for_gt(x, ...)
 \arguments{
 \item{x}{A model object}
 
-\item{...}{Additional arguments passed to \code{\link[broom:tidy]{broom::tidy()}} and
-\code{\link[broom:glance]{broom::glance()}}}
+\item{...}{Additional arguments passed to \code{\link[generics:tidy]{generics::tidy()}} and
+\code{\link[generics:glance]{generics::glance()}}, e.g., \code{vcov = sandwich(x)} for robust standard errors}
 }
 \value{
 A tibble with estimated coefficients, standard errors, and stars.

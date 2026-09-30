@@ -4,17 +4,22 @@
 \alias{add_scores}
 \title{Calculates and adds the scores to a fitted model object}
 \usage{
-add_scores(object, func, x, ...)
+add_scores(object, func, x = coef(object), log_transform = is_bgw(object), ...)
 }
 \arguments{
-\item{object}{A fitted model object of class}
+\item{object}{A fitted model object}
 
-\item{func}{A function with real (vector) results. This is typically the
-log-likelihood function. The function must return the function values at the
-observation level.}
+\item{func}{A function with real (vector) results returning the function
+values at the observation level. This is either the log-likelihood function,
+or, as expected by \code{\link[bgw:bgw_mle]{bgw::bgw_mle()}}, the likelihood function (probabilities).}
 
 \item{x}{A real or real vector argument to func, indicating the point at
-which the gradient is to be calculated.}
+which the gradient is to be calculated. Defaults to the estimated
+coefficients.}
+
+\item{log_transform}{A logical value indicating if \code{func} returns
+likelihoods that must be log transformed before differentiating. Defaults
+to \code{TRUE} for objects of class \code{bgw_mle} and \code{FALSE} otherwise.}
 
 \item{...}{Additional arguments passed to \code{\link[numDeriv:jacobian]{numDeriv::jacobian()}}.}
 }
@@ -23,7 +28,8 @@ A fitted model object with the scores added to the
 object.
 }
 \description{
-Calculates and adds the scores to a fitted model object of.
-The scores are the gradient observations/first derivatives of the log-likelihood
-function. The function is a wrapper around \code{\link[numDeriv:jacobian]{numDeriv::jacobian()}}.
+Calculates and adds the scores to a fitted model object.
+The scores are the gradient observations/first derivatives of the
+observation-level log-likelihood function. The function is a wrapper around
+\code{\link[numDeriv:jacobian]{numDeriv::jacobian()}}.
 }

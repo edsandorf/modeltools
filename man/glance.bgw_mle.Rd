@@ -2,7 +2,7 @@
 % Please edit documentation in R/broom-generics.R
 \name{glance.bgw_mle}
 \alias{glance.bgw_mle}
-\title{Glance a `bgw_mle´ object}
+\title{Glance a \code{bgw_mle} object}
 \usage{
 \method{glance}{bgw_mle}(x, ...)
 }
@@ -15,5 +15,5 @@
 A \code{\link[tibble:tibble]{tibble::tibble()}} with the components of the \code{bgw_mle} object
 }
 \description{
-Glance a `bgw_mle´ object
+Glance a \code{bgw_mle} object
 }
