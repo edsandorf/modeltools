@@ -17,12 +17,11 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edsandorf/modeltools/actions/workflows/R-CMD-check.yaml)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/modeltools)](https://cran.r-project.org/package=modeltools)
-[![Coverage Status](https://codecov.io/github/edsandorf/modeltools/coverage.svg?branch=master)](https://codecov.io/github/edsandorf/modeltools?branch=master)
+[![Coverage Status](https://codecov.io/github/edsandorf/modeltools/coverage.svg?branch=main)](https://app.codecov.io/github/edsandorf/modeltools?branch=main)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of modeltools is to ...
+The goal of modeltools is to provide small, reusable tools for econometric modeling in R, with a particular focus on choice models estimated with [bgw](https://CRAN.R-project.org/package=bgw). Model objects work with the `stats`, `broom` and `sandwich` generics, so standard tools such as `AIC()`, `tidy()` and `sandwich()` work out of the box.
 
 ## Installation
 
@@ -35,10 +34,29 @@ devtools::install_github("edsandorf/modeltools")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Robust standard errors for a model estimated with `bgw_mle()`:
 
-```{r example}
+```{r bgw-example, eval = FALSE}
 library(modeltools)
-## basic example code
+
+model <- bgw::bgw_mle(
+  log_lik, 
+  betaStart = beta, 
+  bgw_settings = list(vcHessianMethod = "finiteDifferences")
+)
+model <- add_scores(model, log_lik)
+
+tidy(model, vcov = sandwich(model))
+prep_for_gt(model, vcov = vcovCL(model, cluster = db$id))
 ```
 
+Comparing two empirical distributions using the Poe et al. (2005) test:
+
+```{r poe-example, message = FALSE}
+library(modeltools)
+
+set.seed(123)
+wtp_a <- rnorm(1000, mean = 0.5)
+wtp_b <- rnorm(1000, mean = 1)
+poe_test(wtp_a, wtp_b)
+```
